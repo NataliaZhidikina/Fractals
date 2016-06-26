@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<BorlandProject>
+	<Transactions>
+    <Transaction>1899.12.30 00:00:00.000.076,=D:\nataflectals_don't_delete\nataflectals_don't_delete\Unit1.pas</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.762,=D:\nataflectals_don't_delete\nataflectals_don't_delete\Unit2.pas</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.263,=D:\nataflectals_don't_delete\nataflectals_don't_delete\ModelSupport_fractProject\default.txaPackage</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.466,D:\delphi\nataflectals_don't_delete\fractProject.dproj=D:\delphi\nata2\fractProject.dproj</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.526,C:\Users\tanya\Documents\Embarcadero\Studio\Projects\Project4.dproj=D:\delphi\nataflectals_don't_delete\fractProject.dproj</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.154,C:\Users\tanya\Documents\Embarcadero\Studio\Projects\Unit3.dfm=D:\delphi\nataflectals_don't_delete\FractUnit.dfm</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.608,=C:\Users\tanya\Documents\Embarcadero\Studio\Projects\Unit3.pas</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.583,=C:\Users\tanya\Documents\Embarcadero\Studio\Projects\Unit3.pas</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.154,C:\Users\tanya\Documents\Embarcadero\Studio\Projects\Unit3.pas=D:\delphi\nataflectals_don't_delete\FractUnit.pas</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.829,D:\delphi\nata2\fractProject.dproj=D:\delphi\nataflectals_don't_delete\fractProject.dproj</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.787,=C:\Users\tanya\Documents\Embarcadero\Studio\Projects\Unit3.pas</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.710,=C:\Users\tanya\Documents\Embarcadero\Studio\Projects\Unit3.pas</Transaction>
+  </Transactions>
+</BorlandProject>

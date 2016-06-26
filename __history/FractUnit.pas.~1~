@@ -1,0 +1,75 @@
+unit FractUnit;
+
+interface
+
+uses
+  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.StdCtrls, Vcl.ExtCtrls,
+  Vcl.ComCtrls, Vcl.Samples.Spin;
+
+type
+  TForm3 = class(TForm)
+    Image1: TImage;
+    Points: TGroupBox;
+    GroupBox3: TGroupBox;
+    Triangels: TRadioButton;
+    Groupbox1: TGroupBox;
+    WritePoints: TRadioButton;
+    WriteMainPoint: TRadioButton;
+    SpinEdit1: TSpinEdit;
+    SpinEdit2: TSpinEdit;
+    SpinEdit3: TSpinEdit;
+    SpinEdit4: TSpinEdit;
+    SpinEdit5: TSpinEdit;
+    SpinEdit6: TSpinEdit;
+    GroupBox2: TGroupBox;
+    TrackBar1: TTrackBar;
+    SpinEdit7: TSpinEdit;
+    SpinEdit8: TSpinEdit;
+    Label1: TLabel;
+    Label2: TLabel;
+    Label3: TLabel;
+    Label4: TLabel;
+    Label5: TLabel;
+    Label6: TLabel;
+    Label7: TLabel;
+    Label8: TLabel;
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  Form3: TForm3;
+
+implementation
+
+{$R *.dfm}
+ procedure DrowTriangels(x1,y1,x2,y2,x3,y3:real);
+ begin
+  with Form3.Image1.Canvas do
+  begin
+   MoveTo(Round(x1),Round(y1));
+   LineTo(Round(x2),Round(y2));
+   LineTo(Round(x3),Round(y3));
+   LineTo(Round(x1),Round(y1));
+  end;
+ end;
+  procedure RecursTriangels(iteretion:integer);
+  begin
+  while (iteretion>1) do
+  begin
+    DrowTriangels();
+    DrowTriangels();
+    DrowTriangels();
+    RecursTriangels(iteretion-1);
+    RecursTriangels(iteretion-1);
+    RecursTriangels(iteretion-1);
+  end;
+  end;
+  procedure InicializeTriangles();
+  begin
+
+  end;
+end.

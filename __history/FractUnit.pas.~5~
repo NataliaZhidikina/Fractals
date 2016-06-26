@@ -1,0 +1,188 @@
+unit FractUnit;
+
+interface
+
+
+uses
+  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.StdCtrls, Vcl.ExtCtrls,
+  Vcl.ComCtrls, Vcl.Samples.Spin;
+
+type
+  TForm3 = class(TForm)
+    Image1: TImage;
+    Points: TGroupBox;
+    GroupBox3: TGroupBox;
+    Triangles: TRadioButton;
+    Groupbox1: TGroupBox;
+    WritePoints: TRadioButton;
+    WriteMainPoint: TRadioButton;
+    SpinEdit1: TSpinEdit;
+    SpinEdit2: TSpinEdit;
+    SpinEdit3: TSpinEdit;
+    SpinEdit4: TSpinEdit;
+    SpinEdit5: TSpinEdit;
+    SpinEdit6: TSpinEdit;
+    GroupBox2: TGroupBox;
+    Iterations: TTrackBar;
+    SpinEdit7: TSpinEdit;
+    SpinEdit8: TSpinEdit;
+    Label1: TLabel;
+    Label2: TLabel;
+    Label3: TLabel;
+    Label4: TLabel;
+    Label5: TLabel;
+    Label6: TLabel;
+    Label7: TLabel;
+    Label8: TLabel;
+    Red: TSpinEdit;
+    Green: TSpinEdit;
+    Blue: TSpinEdit;
+    procedure TrianglesClick(Sender: TObject);
+    procedure RedChange(Sender: TObject);
+    procedure GreenChange(Sender: TObject);
+    procedure BlueChange(Sender: TObject);
+    procedure IterationsChange(Sender: TObject);
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  Form3: TForm3;
+  iter:integer;
+  x1,x2,x3,y1,y2,y3,FinalAge:integer;
+
+implementation
+
+{$R *.dfm}
+procedure TForm3.RedChange(Sender: TObject);
+begin
+ if (Red.Value>255) then
+    Red.Value:=255
+    else
+    if (Red.Value<0) then
+    Red.Value:=0;
+end;
+procedure TForm3.BlueChange(Sender: TObject);
+begin
+ if (Blue.Value>255) then
+    Blue.Value:=255
+    else
+    if (Blue.Value<0) then
+    Blue.Value:=0;
+end;
+procedure TForm3.GreenChange(Sender: TObject);
+begin
+ if (Green.Value>255) then
+    Green.Value:=255
+    else
+    if ( Green.Value<0) then
+    Green.Value:=0;
+end;
+
+procedure TriangelsColor();
+var r,g,b:integer;
+begin
+with Form3 do
+begin
+r:=Red.Value;
+g:=Green.Value;
+b:=Blue.Value;
+Image1.Canvas.Brush.Color:=RGB(r,g,b);
+end;
+end;
+procedure ChangeColor();
+ begin
+ with Form3 do
+  begin
+  Randomize;
+  Red.Value:=Random(255);
+  Green.Value:=Random(255);
+  Blue.Value:=Random(255);
+  end;
+ end;
+procedure Line(x1,y1,x2,y2:real);
+begin
+Form3.Image1.Canvas.MoveTo(Round(x1),Round(y1));
+Form3.Image1.Canvas.LineTo(Round(x2),Round(y2));
+end;
+Procedure Triangle(iter:integer;x1,y1,x2,y2,x3,y3:real);
+var
+xd,yd,xe,ye,xf,yf:real;
+begin
+with Form3 do
+begin
+inc(iter);  Triangles.Caption:=IntToStr(Iter);
+if iter=FinalAge then
+begin
+line(x1,y1,x2,y2);
+line(x2,y2,x3,y3);
+line(x3,y3,x1,y1);
+Image1.Canvas.Refresh;
+end
+else
+begin
+xd:=round((x1+x2)/2);
+yd:=round((y1+y2)/2);
+
+xe:=round((x2+x3)/2);
+ye:=round((y2+y3)/2);
+
+xf:=round((x1+x3)/2);
+yf:=round((y1+y3)/2);
+
+triangle(iter,x1,y1,xd,yd,xf,yf);
+triangle(iter,xd,yd,x2,y2,xe,ye);
+triangle(iter,xf,yf,xe,ye,x3,y3);
+end;
+end;
+end;
+procedure DrowTriangles();
+begin
+with Form3 do
+begin
+Image1.Canvas.Brush.Color:=clWhite;
+image1.Canvas.rectangle(0,0,image1.Width,image1.Height);
+x1:=0;
+y1:=0;
+
+x2:=Round(Image1.Width/2);
+y2:=Image1.Height;
+
+x3:=Image1.Width;
+y3:=0;
+
+//Form1.Image1.Canvas.Polygon([Point(x1,y1),Point(x2,y2),Point(x3,y3)]);
+Image1.Canvas.CleanupInstance;
+if Iter>0 then
+begin
+Finalage:=Iter;
+//TriangelsColor();
+//Image1.Canvas.Polygon([Point(x1,y1),Point(x2,y2),Point(x3,y3)]);
+triangle(0,x1,y1,x2,y2,x3,y3);
+//Image1.Canvas.Polygon([Point(x1,y1),Point(x2,y2),Point(x3,y3)]);
+end;
+end;
+end;
+
+procedure InicializeTriangles();
+  begin
+
+  end;
+procedure TForm3.TrianglesClick(Sender: TObject);
+var xo,yo,l1,l2,l3:integer;
+begin
+iter:=Iterations.Position;
+DrowTriangles;
+  Iterations.Visible:=True;
+end;
+
+ procedure TForm3.IterationsChange(Sender: TObject);
+begin
+  Iter:=Iterations.Position;
+  DrowTriangles;
+
+end;
+end.

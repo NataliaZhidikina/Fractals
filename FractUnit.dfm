@@ -1,0 +1,968 @@
+﻿object Form3: TForm3
+  Left = 0
+  Top = 0
+  Caption = #1060#1088#1072#1082#1090#1072#1083
+  ClientHeight = 700
+  ClientWidth = 1200
+  Color = clBtnFace
+  Font.Charset = DEFAULT_CHARSET
+  Font.Color = clWindowText
+  Font.Height = -11
+  Font.Name = 'Tahoma'
+  Font.Style = []
+  OldCreateOrder = False
+  Position = poScreenCenter
+  OnClose = FormClose
+  OnCreate = FormCreate
+  PixelsPerInch = 96
+  TextHeight = 13
+  object Image1: TImage
+    Left = 8
+    Top = 33
+    Width = 600
+    Height = 600
+  end
+  object GroupBox2: TGroupBox
+    Left = 958
+    Top = 16
+    Width = 270
+    Height = 238
+    Caption = #1050#1086#1083#1100#1086#1088#1080' '#1090#1072' '#1030#1085#1090#1077#1088#1072#1094#1110#1111
+    TabOrder = 0
+    object Label9: TLabel
+      Left = 3
+      Top = 60
+      Width = 49
+      Height = 13
+      Caption = #1063#1077#1088#1074#1086#1085#1080#1081
+    end
+    object Label10: TLabel
+      Left = 3
+      Top = 91
+      Width = 42
+      Height = 13
+      Caption = #1047#1077#1083#1077#1085#1080#1081
+    end
+    object Label11: TLabel
+      Left = 3
+      Top = 125
+      Width = 27
+      Height = 13
+      Caption = #1057#1080#1085#1110#1081
+    end
+    object Label12: TLabel
+      Left = 3
+      Top = 153
+      Width = 92
+      Height = 13
+      Caption = #1063#1077#1088#1074#1086#1085#1080#1081' '#1054#1083#1110#1074#1077#1094#1100
+    end
+    object Label13: TLabel
+      Left = 3
+      Top = 172
+      Width = 85
+      Height = 13
+      Caption = #1047#1077#1083#1077#1085#1080#1081' '#1054#1083#1110#1074#1077#1094#1100
+    end
+    object Label14: TLabel
+      Left = 3
+      Top = 200
+      Width = 70
+      Height = 13
+      Caption = #1057#1080#1085#1110#1081' '#1054#1083#1110#1074#1077#1094#1100
+    end
+    object Iterations: TTrackBar
+      Left = -2
+      Top = 17
+      Width = 193
+      Height = 37
+      Max = 6
+      Min = 1
+      PageSize = 1
+      Position = 2
+      TabOrder = 0
+      OnChange = IterationsChange
+    end
+    object Red: TSpinEdit
+      Left = 91
+      Top = 60
+      Width = 90
+      Height = 22
+      MaxValue = 0
+      MinValue = 0
+      TabOrder = 1
+      Value = 0
+      OnChange = GreenChange
+    end
+    object Green: TSpinEdit
+      Left = 91
+      Top = 88
+      Width = 90
+      Height = 22
+      MaxValue = 0
+      MinValue = 0
+      TabOrder = 2
+      Value = 0
+      OnChange = GreenChange
+    end
+    object Blue: TSpinEdit
+      Left = 90
+      Top = 116
+      Width = 89
+      Height = 22
+      MaxValue = 0
+      MinValue = 0
+      TabOrder = 3
+      Value = 0
+      OnChange = GreenChange
+    end
+    object RedPen: TSpinEdit
+      Left = 94
+      Top = 144
+      Width = 90
+      Height = 22
+      MaxValue = 0
+      MinValue = 0
+      TabOrder = 4
+      Value = 0
+      OnChange = GreenChange
+    end
+    object GreenPen: TSpinEdit
+      Left = 94
+      Top = 172
+      Width = 90
+      Height = 22
+      MaxValue = 0
+      MinValue = 0
+      TabOrder = 5
+      Value = 0
+      OnChange = GreenChange
+    end
+    object BluePen: TSpinEdit
+      Left = 94
+      Top = 200
+      Width = 89
+      Height = 22
+      MaxValue = 0
+      MinValue = 0
+      TabOrder = 6
+      Value = 0
+      OnChange = GreenChange
+    end
+  end
+  object ScrollBox1: TScrollBox
+    Left = 634
+    Top = 8
+    Width = 316
+    Height = 71
+    VertScrollBar.ButtonSize = 10
+    VertScrollBar.Increment = 3
+    VertScrollBar.Margin = 10
+    VertScrollBar.ParentColor = False
+    VertScrollBar.Style = ssHotTrack
+    VertScrollBar.Tracking = True
+    TabOrder = 1
+    object Triangles: TRadioButton
+      Left = 3
+      Top = 3
+      Width = 145
+      Height = 17
+      Caption = #1058#1088#1080#1082#1091#1090#1085#1080#1082' '#1057#1077#1088#1087#1080#1085#1089#1100#1082#1086#1075#1086
+      TabOrder = 0
+      OnClick = TrianglesClick
+    end
+    object Squares2: TRadioButton
+      Left = 3
+      Top = 26
+      Width = 62
+      Height = 17
+      Caption = #1058' - '#1082#1074#1072#1076#1088#1072#1090
+      TabOrder = 1
+      OnClick = Squares2Click
+    end
+    object Puano: TRadioButton
+      Left = 3
+      Top = 50
+      Width = 97
+      Height = 17
+      Caption = #1060#1088#1072#1082#1090#1072#1083' '#1055#1091#1072#1085#1086
+      TabOrder = 2
+      OnClick = PuanoClick
+    end
+    object HFractal: TRadioButton
+      Left = 3
+      Top = 73
+      Width = 86
+      Height = 17
+      Caption = #1060#1088#1072#1082#1090#1072#1083' H'
+      TabOrder = 3
+      OnClick = HFractalClick
+    end
+    object Minkovski: TRadioButton
+      Left = 3
+      Top = 96
+      Width = 142
+      Height = 17
+      Caption = #1060#1088#1072#1082#1090#1072#1083' '#1052#1110#1085#1082#1086#1074#1089#1100#1082#1086#1075#1086
+      TabOrder = 4
+      OnClick = MinkovskiClick
+    end
+  end
+  object ScrollBox2: TScrollBox
+    Left = 497
+    Top = 668
+    Width = 128
+    Height = 24
+    VertScrollBar.Tracking = True
+    TabOrder = 2
+    object WritePoints: TRadioButton
+      Left = 4
+      Top = 3
+      Width = 49
+      Height = 17
+      Caption = '1form'
+      Checked = True
+      TabOrder = 0
+      TabStop = True
+      OnClick = form1Click
+    end
+    object WriteMainPoint: TRadioButton
+      Left = 59
+      Top = 3
+      Width = 49
+      Height = 17
+      Caption = '2form'
+      TabOrder = 1
+      OnClick = form2Click
+    end
+  end
+  object ScrollBox5: TScrollBox
+    Left = 637
+    Top = 484
+    Width = 315
+    Height = 62
+    VertScrollBar.ButtonSize = 1
+    VertScrollBar.Increment = 3
+    VertScrollBar.ParentColor = False
+    VertScrollBar.Position = 123
+    VertScrollBar.Style = ssHotTrack
+    VertScrollBar.Tracking = True
+    BevelOuter = bvRaised
+    BiDiMode = bdLeftToRight
+    ParentBiDiMode = False
+    TabOrder = 3
+    object Шестикутник: TRadioButton
+      Left = 3
+      Top = -28
+      Width = 78
+      Height = 17
+      Caption = #1064#1077#1089#1090#1080#1082#1091#1090#1085#1080#1082
+      TabOrder = 0
+      OnClick = ШестикутникClick
+    end
+    object Семикутник: TRadioButton
+      Left = 3
+      Top = -51
+      Width = 78
+      Height = 17
+      Caption = #1057#1077#1084#1080#1082#1091#1090#1085#1080#1082
+      TabOrder = 1
+      OnClick = СемикутникClick
+    end
+    object Восьмикутник: TRadioButton
+      Left = 3
+      Top = -74
+      Width = 102
+      Height = 17
+      Caption = #1042#1086#1089#1100#1084#1080#1082#1091#1090#1085#1080#1082
+      TabOrder = 2
+      OnClick = ВосьмикутникClick
+    end
+    object HexaStar3: TRadioButton
+      Left = 3
+      Top = -97
+      Width = 86
+      Height = 17
+      Caption = #1064#1077#1089#1090#1080#1082#1091#1090#1085#1080#1082
+      TabOrder = 3
+      OnClick = HexaStar3Click
+    end
+    object PentaStar3: TRadioButton
+      Left = 3
+      Top = -120
+      Width = 78
+      Height = 17
+      Caption = #1055#39#1103#1090#1080#1082#1091#1090#1085#1080#1082
+      TabOrder = 4
+      OnClick = PentaStar3Click
+    end
+    object Pentagon3: TRadioButton
+      Left = 3
+      Top = -5
+      Width = 86
+      Height = 17
+      Caption = #1055#39#1103#1090#1080#1082#1091#1090#1085#1080#1082
+      TabOrder = 5
+      OnClick = Pentagon3Click
+    end
+    object Square3: TRadioButton
+      Left = 3
+      Top = 18
+      Width = 84
+      Height = 17
+      Caption = #1050#1074#1072#1076#1088#1072#1090
+      TabOrder = 6
+      OnClick = Square3Click
+    end
+    object Triangles3: TRadioButton
+      Left = 3
+      Top = 41
+      Width = 78
+      Height = 17
+      Caption = #1058#1088#1080#1082#1091#1090#1085#1080#1082
+      TabOrder = 7
+      OnClick = Triangles3Click
+    end
+  end
+  object ScrollBox4: TScrollBox
+    Left = 634
+    Top = 88
+    Width = 316
+    Height = 58
+    VertScrollBar.ButtonSize = 1
+    VertScrollBar.Increment = 3
+    VertScrollBar.ParentColor = False
+    VertScrollBar.Position = 169
+    VertScrollBar.Style = ssHotTrack
+    VertScrollBar.Tracking = True
+    BevelOuter = bvRaised
+    BiDiMode = bdLeftToRight
+    ParentBiDiMode = False
+    TabOrder = 4
+    object KochSquare3: TRadioButton
+      Left = 3
+      Top = -143
+      Width = 147
+      Height = 17
+      Caption = #1063#1086#1090#1080#1088#1080#1082#1091#1090#1085#1072' '#1079#1110#1088#1082#1072' '#1050#1086#1093#1072' '
+      TabOrder = 0
+      OnClick = KochSquare3Click
+    end
+    object KochHexagon2: TRadioButton
+      Left = 3
+      Top = -166
+      Width = 150
+      Height = 17
+      Caption = #1064#1077#1089#1090#1080#1082#1091#1090#1085#1072' '#1079#1110#1088#1082#1072' '#1050#1086#1093#1072
+      TabOrder = 1
+      OnClick = KochHexagon2Click
+    end
+    object KochOctagon: TRadioButton
+      Left = 3
+      Top = -120
+      Width = 147
+      Height = 17
+      Caption = #1042#1086#1089#1100#1084#1080#1082#1091#1090#1085#1072' '#1079#1110#1088#1082#1072' '#1050#1086#1093#1072
+      TabOrder = 2
+      OnClick = KochOctagonClick
+    end
+    object KochHepagon: TRadioButton
+      Left = 3
+      Top = -97
+      Width = 147
+      Height = 17
+      Caption = #1057#1077#1084#1080#1082#1091#1090#1085#1072' '#1079#1110#1088#1086#1095#1082#1072' '#1050#1086#1093#1072
+      TabOrder = 3
+      OnClick = KochHepagonClick
+    end
+    object KochStar2: TRadioButton
+      Left = 4
+      Top = -74
+      Width = 120
+      Height = 17
+      Caption = #1055#39#1103#1090#1080#1082#1091#1090#1085#1080#1082' '#1050#1086#1093#1072
+      TabOrder = 4
+      OnClick = KochStar2Click
+    end
+    object KochHexagon: TRadioButton
+      Left = 3
+      Top = -5
+      Width = 113
+      Height = 17
+      Caption = #1064#1077#1089#1090#1080#1082#1091#1090#1085#1080#1082' '#1050#1086#1093#1072
+      TabOrder = 5
+      OnClick = KochHexagonClick
+    end
+    object KochPentagon: TRadioButton
+      Left = 4
+      Top = -28
+      Width = 113
+      Height = 17
+      Caption = #1055#39#1103#1090#1080#1082#1091#1090#1085#1080#1082' '#1050#1086#1093#1072
+      TabOrder = 6
+      OnClick = KochPentagonClick
+    end
+    object KochSquare2: TRadioButton
+      Left = 3
+      Top = -48
+      Width = 93
+      Height = 17
+      Caption = #1050#1074#1072#1076#1088#1072#1090' '#1050#1086#1093#1072
+      TabOrder = 7
+      OnClick = KochSquare2Click
+    end
+    object KochPentagon2: TRadioButton
+      Left = 3
+      Top = 18
+      Width = 145
+      Height = 17
+      Caption = #1055#39#1103#1090#1080#1082#1091#1090#1085#1072' '#1079#1110#1088#1082#1072' '#1050#1086#1093#1072
+      TabOrder = 8
+      OnClick = KochPentagon2Click
+    end
+    object KochStar: TRadioButton
+      Left = 3
+      Top = 86
+      Width = 113
+      Height = 17
+      Caption = #1047#1110#1088#1082#1072' '#1050#1086#1093#1072
+      TabOrder = 9
+      OnClick = KochStarClick
+    end
+    object KochLine: TRadioButton
+      Left = 3
+      Top = 109
+      Width = 147
+      Height = 17
+      Caption = #1063#1090#1080#1088#1080#1082#1091#1090#1085#1072' '#1079#1110#1088#1082#1072' '#1050#1086#1093#1072
+      TabOrder = 10
+      OnClick = KochLineClick
+    end
+    object KochSquare: TRadioButton
+      Left = 3
+      Top = 63
+      Width = 113
+      Height = 17
+      Caption = #1063#1086#1090#1080#1088#1080#1082#1091#1090#1085#1080#1082' '#1050#1086#1093#1072
+      TabOrder = 11
+      OnClick = KochSquareClick
+    end
+    object KochTriangle: TRadioButton
+      Left = 3
+      Top = 41
+      Width = 121
+      Height = 17
+      Caption = #1058#1088#1080#1082#1091#1090#1085#1072' '#1079#1110#1088#1082#1072' '#1050#1086#1093#1072
+      TabOrder = 12
+      OnClick = KochTriangleClick
+    end
+  end
+  object ScrollBox3: TScrollBox
+    Left = 634
+    Top = 222
+    Width = 318
+    Height = 59
+    VertScrollBar.ButtonSize = 1
+    VertScrollBar.Increment = 3
+    VertScrollBar.ParentColor = False
+    VertScrollBar.Position = 55
+    VertScrollBar.Style = ssHotTrack
+    VertScrollBar.Tracking = True
+    BevelOuter = bvRaised
+    BiDiMode = bdLeftToRight
+    ParentBiDiMode = False
+    TabOrder = 5
+    object Pentagons: TRadioButton
+      Left = 3
+      Top = -52
+      Width = 86
+      Height = 17
+      Caption = #1055#39#1103#1090#1080#1082#1091#1090#1085#1080#1082
+      TabOrder = 0
+      OnClick = PentagonsClick
+    end
+    object Hexagons: TRadioButton
+      Left = 3
+      Top = -31
+      Width = 78
+      Height = 17
+      Caption = #1064#1077#1089#1090#1080#1082#1091#1090#1085#1080#1082
+      TabOrder = 1
+      OnClick = HexagonsClick
+    end
+    object Heptagons: TRadioButton
+      Left = 3
+      Top = -8
+      Width = 94
+      Height = 17
+      Caption = #1057#1077#1084#1080#1082#1091#1090#1085#1080#1082
+      TabOrder = 2
+      OnClick = HeptagonsClick
+    end
+    object Otagons: TRadioButton
+      Left = 3
+      Top = 13
+      Width = 94
+      Height = 17
+      Caption = #1042#1086#1089#1100#1084#1080#1082#1091#1090#1085#1080#1082
+      TabOrder = 3
+      OnClick = OtagonsClick
+    end
+    object Otagons2: TRadioButton
+      Left = 3
+      Top = 35
+      Width = 113
+      Height = 17
+      Caption = #1042#1086#1089#1100#1084#1080#1082#1091#1090#1085#1080#1082'2'
+      TabOrder = 4
+      OnClick = Otagons2Click
+    end
+    object HexaStars: TRadioButton
+      Left = 3
+      Top = 59
+      Width = 121
+      Height = 17
+      Caption = #1064#1077#1089#1090#1080#1082#1091#1090#1085#1080#1082' '#1079' '#1079#1110#1088#1082#1086#1102
+      TabOrder = 5
+      OnClick = HexaStarsClick
+    end
+    object PentaStars: TRadioButton
+      Left = 3
+      Top = 82
+      Width = 121
+      Height = 14
+      Caption = #1055#39#1103#1090#1080#1082#1091#1090#1085#1080#1082' '#1079' '#1079#1110#1088#1082#1086#1102
+      TabOrder = 6
+      OnClick = PentaStarsClick
+    end
+  end
+  object ScrollBox6: TScrollBox
+    Left = 635
+    Top = 411
+    Width = 317
+    Height = 67
+    VertScrollBar.ButtonSize = 1
+    VertScrollBar.Increment = 3
+    VertScrollBar.ParentColor = False
+    VertScrollBar.Position = 117
+    VertScrollBar.Style = ssHotTrack
+    VertScrollBar.Tracking = True
+    BevelOuter = bvRaised
+    BiDiMode = bdLeftToRight
+    ParentBiDiMode = False
+    TabOrder = 6
+    object Tria: TRadioButton
+      Left = 3
+      Top = -114
+      Width = 122
+      Height = 17
+      Caption = #1058#1088#1080#1082#1091#1090#1085#1080#1081' '#1082#1080#1083#1080#1084' '#1057#1077#1088#1087#1080#1085#1089#1100#1082#1086#1075#1086
+      TabOrder = 0
+      OnClick = TriaClick
+    end
+    object Squares: TRadioButton
+      Left = 3
+      Top = -91
+      Width = 122
+      Height = 17
+      Caption = #1050#1080#1083#1080#1084' '#1057#1077#1088#1087#1080#1085#1089#1100#1082#1086#1075#1086
+      TabOrder = 1
+      OnClick = SquaresClick
+    end
+    object Penta: TRadioButton
+      Left = 3
+      Top = -68
+      Width = 122
+      Height = 17
+      Caption = #1055#39#1103#1090#1080#1082#1091#1090#1085#1080#1081' '#1082#1080#1083#1080#1084' '#1057#1077#1088#1087#1080#1085#1089#1100#1082#1086#1075#1086
+      TabOrder = 2
+      OnClick = PentaClick
+    end
+    object Hexa: TRadioButton
+      Left = 3
+      Top = -45
+      Width = 70
+      Height = 17
+      Caption = #1064#1077#1089#1090#1080#1082#1091#1090#1085#1080#1081' '#1082#1080#1083#1080#1084' '#1057#1077#1088#1087#1080#1085#1089#1100#1082#1086#1075#1086
+      TabOrder = 3
+      OnClick = HexaClick
+    end
+    object Hepta: TRadioButton
+      Left = 3
+      Top = -23
+      Width = 113
+      Height = 17
+      Caption = #1057#1077#1084#1080#1082#1091#1090#1085#1080#1081' '#1082#1080#1083#1080#1084' '#1057#1077#1088#1087#1080#1085#1089#1100#1082#1086#1075#1086
+      TabOrder = 4
+      OnClick = HeptaClick
+    end
+    object Octa: TRadioButton
+      Left = 3
+      Top = 0
+      Width = 113
+      Height = 17
+      Caption = #1042#1086#1089#1100#1084#1080#1082#1091#1090#1085#1080#1081' '#1082#1080#1083#1080#1084' '#1057#1077#1088#1087#1080#1085#1089#1100#1082#1086#1075#1086
+      TabOrder = 5
+      OnClick = OctaClick
+    end
+    object HexaStara: TRadioButton
+      Left = 3
+      Top = 46
+      Width = 245
+      Height = 17
+      Caption = #1050#1080#1083#1080#1084' '#1057#1077#1088#1087#1080#1085#1089#1100#1082#1086#1075#1086' '#1079' '#1096#1077#1089#1090#1080#1082#1091#1090#1085#1086#1102' '#1079#1110#1088#1082#1086#1102
+      TabOrder = 6
+      OnClick = HexaStaraClick
+    end
+    object PentaStara: TRadioButton
+      Left = 3
+      Top = 23
+      Width = 113
+      Height = 17
+      Caption = #1050#1080#1083#1080#1084' '#1057#1077#1088#1087#1080#1085#1089#1100#1082#1086#1075#1086' '#1079' '#1079#1110#1088#1082#1086#1102
+      TabOrder = 7
+      OnClick = PentaStaraClick
+    end
+  end
+  object ScrollBox7: TScrollBox
+    Left = 635
+    Top = 158
+    Width = 317
+    Height = 55
+    VertScrollBar.ButtonSize = 1
+    VertScrollBar.Increment = 3
+    VertScrollBar.ParentColor = False
+    VertScrollBar.Style = ssHotTrack
+    VertScrollBar.Tracking = True
+    BevelOuter = bvRaised
+    BiDiMode = bdLeftToRight
+    ParentBiDiMode = False
+    TabOrder = 7
+    object JuliaSet1: TRadioButton
+      Left = 3
+      Top = 3
+      Width = 113
+      Height = 17
+      Caption = #1060#1088#1072#1082#1090#1072#1083' '#1046#1091#1083#1110#1072#1085#1072
+      TabOrder = 0
+      OnClick = JuliaSet1Click
+    end
+    object Julian: TRadioButton
+      Left = 3
+      Top = 26
+      Width = 113
+      Height = 17
+      Caption = #1052#1085#1086#1078#1080#1085#1072' '#1046#1091#1083#1110#1072#1085#1072
+      TabOrder = 1
+      OnClick = Julia2Click
+    end
+    object Mandelbrot1: TRadioButton
+      Left = 3
+      Top = 49
+      Width = 139
+      Height = 17
+      Caption = #1052#1085#1086#1078#1080#1085#1072' '#1052#1072#1085#1076#1077#1083#1100#1073#1088#1086#1090#1072
+      TabOrder = 2
+      OnClick = Mandelbrot1Click
+    end
+  end
+  object ScrollBox8: TScrollBox
+    Left = 636
+    Top = 290
+    Width = 316
+    Height = 47
+    VertScrollBar.ButtonSize = 1
+    VertScrollBar.Increment = 3
+    VertScrollBar.ParentColor = False
+    VertScrollBar.Position = 185
+    VertScrollBar.Style = ssHotTrack
+    VertScrollBar.Tracking = True
+    BevelOuter = bvRaised
+    BiDiMode = bdLeftToRight
+    ParentBiDiMode = False
+    TabOrder = 8
+    object LeviSquare: TRadioButton
+      Left = 3
+      Top = -159
+      Width = 139
+      Height = 17
+      Caption = #1063#1086#1090#1080#1088#1100#1086#1093#1082#1091#1090#1085#1080#1082' '#1051#1077#1074#1110
+      TabOrder = 0
+      OnClick = LeviSquareClick
+    end
+    object LeviTriangles: TRadioButton
+      Left = 3
+      Top = -182
+      Width = 94
+      Height = 17
+      Caption = #1058#1088#1080#1082#1091#1090#1085#1080#1082' '#1051#1077#1074#1110
+      TabOrder = 1
+      OnClick = LeviTrianglesClick
+    end
+    object LeviPentagon: TRadioButton
+      Left = 3
+      Top = -136
+      Width = 110
+      Height = 17
+      Caption = #1055#39#1103#1090#1080#1082#1091#1090#1085#1080#1082' '#1051#1077#1074#1110
+      TabOrder = 2
+      OnClick = LeviPentagonClick
+    end
+    object LeviHexagon: TRadioButton
+      Left = 3
+      Top = -113
+      Width = 121
+      Height = 17
+      Caption = #1064#1077#1089#1090#1080#1082#1091#1090#1085#1080#1082' '#1051#1077#1074#1110
+      TabOrder = 3
+      OnClick = LeviHexagonClick
+    end
+    object LeviHeptagon: TRadioButton
+      Left = 4
+      Top = -90
+      Width = 109
+      Height = 17
+      Caption = #1057#1077#1084#1080#1082#1091#1090#1085#1080#1082' '#1051#1077#1074#1110
+      TabOrder = 4
+      OnClick = LeviHeptagonClick
+    end
+    object LeviHeptagon2: TRadioButton
+      Left = 3
+      Top = -21
+      Width = 113
+      Height = 17
+      Caption = #1057#1077#1084#1080#1082#1091#1090#1085#1080#1082' '#1051#1077#1074#1110'2'
+      TabOrder = 5
+      OnClick = LeviHeptagon2Click
+    end
+    object LeviOctagon2: TRadioButton
+      Left = 3
+      Top = -44
+      Width = 121
+      Height = 17
+      Caption = #1042#1086#1089#1100#1084#1080#1082#1091#1090#1085#1080#1082' '#1051#1077#1074#1110'2'
+      TabOrder = 6
+      OnClick = LeviOctagon2Click
+    end
+    object LeviOctagon: TRadioButton
+      Left = 3
+      Top = -67
+      Width = 121
+      Height = 17
+      Caption = #1042#1086#1089#1100#1084#1080#1082#1091#1090#1085#1080#1082' '#1051#1077#1074#1110
+      TabOrder = 7
+      OnClick = LeviOctagonClick
+    end
+    object LeviHexagon2: TRadioButton
+      Left = 5
+      Top = 2
+      Width = 119
+      Height = 17
+      Caption = #1064#1077#1089#1090#1080#1082#1091#1090#1085#1080#1082' '#1051#1077#1074#1110'2'
+      TabOrder = 8
+      OnClick = LeviHexagon2Click
+    end
+    object LeviSquare2: TRadioButton
+      Left = 3
+      Top = 47
+      Width = 113
+      Height = 17
+      Caption = #1050#1074#1072#1076#1088#1072#1090' '#1051#1077#1074#1110
+      TabOrder = 9
+      OnClick = LeviSquare2Click
+    end
+    object LeviPentagon2: TRadioButton
+      Left = 3
+      Top = 24
+      Width = 102
+      Height = 17
+      Caption = #1055#39#1103#1090#1080#1082#1091#1090#1085#1080#1082' '#1051#1077#1074#1110'2'
+      TabOrder = 10
+      OnClick = LeviPentagon2Click
+    end
+  end
+  object ScrollBox9: TScrollBox
+    Left = 634
+    Top = 347
+    Width = 318
+    Height = 55
+    VertScrollBar.ButtonSize = 1
+    VertScrollBar.Increment = 3
+    VertScrollBar.ParentColor = False
+    VertScrollBar.Style = ssHotTrack
+    VertScrollBar.Tracking = True
+    BevelOuter = bvRaised
+    BiDiMode = bdLeftToRight
+    ParentBiDiMode = False
+    TabOrder = 9
+    object Dragons: TRadioButton
+      Left = 3
+      Top = 26
+      Width = 148
+      Height = 17
+      Caption = #1044#1088#1072#1082#1086#1085' '#1061#1072#1088#1090#1077#1088#1072'-'#1061#1077#1081#1090#1091#1077#1103
+      TabOrder = 0
+      OnClick = DragonsClick
+    end
+    object DragonSquare: TRadioButton
+      Left = 3
+      Top = 3
+      Width = 204
+      Height = 17
+      Caption = #1063#1086#1090#1080#1088#1080#1082#1091#1090#1085#1080#1081' '#1044#1088#1072#1082#1086#1085' '#1061#1072#1088#1090#1077#1088#1072'-'#1061#1077#1081#1090#1091#1077#1103
+      TabOrder = 1
+      OnClick = DragonSquareClick
+    end
+    object FourDragon: TRadioButton
+      Left = 8
+      Top = 52
+      Width = 207
+      Height = 17
+      Caption = #1063#1086#1090#1080#1090#1088#1080' '#1076#1088#1072#1082#1086#1085' '#1061#1072#1088#1090#1077#1088#1072'-'#1061#1077#1081#1090#1091#1077#1103
+      TabOrder = 2
+      OnClick = FourDragonClick
+    end
+    object DragonLine: TRadioButton
+      Left = 3
+      Top = 72
+      Width = 204
+      Height = 17
+      Caption = #1051#1110#1085#1110#1103' '#1076#1088#1072#1082#1086#1085' '#1061#1072#1088#1090#1077#1088#1072'-'#1061#1077#1081#1090#1091#1077#1103
+      TabOrder = 3
+      OnClick = DragonLineClick
+    end
+  end
+  object ScrollBox10: TScrollBox
+    Left = 635
+    Top = 558
+    Width = 317
+    Height = 61
+    VertScrollBar.ButtonSize = 1
+    VertScrollBar.Increment = 3
+    VertScrollBar.ParentColor = False
+    VertScrollBar.Style = ssHotTrack
+    VertScrollBar.Tracking = True
+    BevelOuter = bvRaised
+    BiDiMode = bdLeftToRight
+    ParentBiDiMode = False
+    TabOrder = 10
+    object XX: TRadioButton
+      Left = 3
+      Top = 3
+      Width = 86
+      Height = 17
+      Caption = #1060#1088#1072#1082#1090#1072#1083' '#1051#1077#1074#1110
+      TabOrder = 0
+      OnClick = XXClick
+    end
+    object XX2: TRadioButton
+      Left = 3
+      Top = 27
+      Width = 102
+      Height = 17
+      Caption = #1060#1088#1072#1082#1090#1072#1083' '#1051#1077#1074#1110'2'
+      TabOrder = 1
+      OnClick = XX2Click
+    end
+    object Levi_2: TRadioButton
+      Left = 3
+      Top = 50
+      Width = 102
+      Height = 17
+      Caption = #1060#1088#1072#1082#1090#1072#1083' '#1051#1077#1074#1110
+      TabOrder = 2
+      OnClick = Levi_2Click
+    end
+  end
+  object ScrollBox11: TScrollBox
+    Left = 16
+    Top = 651
+    Width = 481
+    Height = 41
+    TabOrder = 11
+    object Colorful: TSpeedButton
+      Left = 3
+      Top = 11
+      Width = 73
+      Height = 23
+      AllowAllUp = True
+      GroupIndex = 1
+      Caption = 'Colorful'
+      OnClick = ColorfulClick
+    end
+    object ColorSecond: TSpeedButton
+      Left = 82
+      Top = 11
+      Width = 74
+      Height = 22
+      AllowAllUp = True
+      GroupIndex = 1
+      Caption = 'Color/Second'
+      OnClick = ColorSecondClick
+    end
+    object SpeedButton1: TSpeedButton
+      Left = 323
+      Top = 12
+      Width = 69
+      Height = 22
+      Caption = 'Clear'
+      OnClick = SpeedButton1Click
+    end
+    object ChangeSize: TSpeedButton
+      Left = 243
+      Top = 12
+      Width = 71
+      Height = 22
+      AllowAllUp = True
+      GroupIndex = 2
+      Caption = 'ChangeSize'
+      OnClick = ChangeSizeClick
+    end
+    object ChangeColors: TButton
+      Left = 162
+      Top = 8
+      Width = 75
+      Height = 25
+      Caption = 'ChangeColors'
+      TabOrder = 0
+      OnClick = ChangeColorsClick
+    end
+    object Save: TButton
+      Left = 398
+      Top = 9
+      Width = 75
+      Height = 25
+      Caption = 'Save'
+      TabOrder = 1
+      OnClick = SaveClick
+    end
+  end
+  object Button1: TButton
+    Left = 8
+    Top = 2
+    Width = 75
+    Height = 25
+    Caption = 'C'#1087#1088#1072#1074#1082#1072
+    TabOrder = 12
+    OnClick = Button1Click
+  end
+  object Timer1: TTimer
+    Enabled = False
+    Interval = 300
+    OnTimer = Timer1Timer
+    Left = 598
+    Top = 15
+  end
+  object Timer2: TTimer
+    Enabled = False
+    Interval = 50
+    OnTimer = Timer2Timer
+    Left = 600
+    Top = 64
+  end
+  object SavePictureDialog1: TSavePictureDialog
+    DefaultExt = '*.jpg'
+    Left = 638
+    Top = 628
+  end
+end

@@ -1,0 +1,423 @@
+unit FractUnit;
+
+interface
+
+
+uses
+  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.StdCtrls, Vcl.ExtCtrls,
+  Vcl.ComCtrls, Vcl.Samples.Spin, Vcl.Buttons, Math;
+
+type
+  TForm3 = class(TForm)
+    Image1: TImage;
+    Points: TGroupBox;
+    GroupBox3: TGroupBox;
+    Triangles: TRadioButton;
+    Groupbox1: TGroupBox;
+    WritePoints: TRadioButton;
+    WriteMainPoint: TRadioButton;
+    SpinEdit1: TSpinEdit;
+    SpinEdit2: TSpinEdit;
+    SpinEdit3: TSpinEdit;
+    SpinEdit4: TSpinEdit;
+    SpinEdit5: TSpinEdit;
+    SpinEdit6: TSpinEdit;
+    GroupBox2: TGroupBox;
+    Iterations: TTrackBar;
+    SpinEdit7: TSpinEdit;
+    SpinEdit8: TSpinEdit;
+    Label1: TLabel;
+    Label2: TLabel;
+    Label3: TLabel;
+    Label4: TLabel;
+    Label5: TLabel;
+    Label6: TLabel;
+    Label7: TLabel;
+    Label8: TLabel;
+    Red: TSpinEdit;
+    Green: TSpinEdit;
+    Blue: TSpinEdit;
+    ChangeColors: TButton;
+    Colorful: TSpeedButton;
+    Label9: TLabel;
+    Label10: TLabel;
+    Label11: TLabel;
+    Timer1: TTimer;
+    ColorSecond: TSpeedButton;
+    Timer2: TTimer;
+    ChangeSize: TSpeedButton;
+    Run: TSpeedButton;
+    Timer3: TTimer;
+    Squares: TRadioButton;
+    procedure TrianglesClick(Sender: TObject);
+    procedure GreenChange(Sender: TObject);
+    procedure IterationsChange(Sender: TObject);
+    procedure ChangeColorsClick(Sender: TObject);
+    procedure ColorfulClick(Sender: TObject);
+    procedure Timer1Timer(Sender: TObject);
+    procedure ColorSecondClick(Sender: TObject);
+    procedure Button1Click(Sender: TObject);
+    procedure ChangeSizeClick(Sender: TObject);
+    procedure FormCreate(Sender: TObject);
+    procedure Timer2Timer(Sender: TObject);
+    procedure RunClick(Sender: TObject);
+    procedure Timer3Timer(Sender: TObject);
+    procedure SquaresClick(Sender: TObject);
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  Form3: TForm3;
+  iter,smaller,grads:integer;
+  x1,x2,x3,y1,y2,y3,x4,y4,FinalAge,i,r:integer;
+  RedTimer,GreenTimer,BlueTimer,TimerValue2,TimerValue3:Boolean;
+  Procedure ChangeColor;
+  Procedure FigureColor;
+implementation
+
+{$R *.dfm}
+procedure DrowTriangles();forward;
+procedure InicializeTriangles();forward;
+procedure InicializeSquares();forward;
+procedure Ifs(); forward;
+
+procedure TForm3.FormCreate(Sender: TObject);
+begin
+smaller:=0;
+grads:=0;
+//TimerValue3:=true;
+r:=300;
+end;
+
+procedure ChangeColor();
+ begin
+ with Form3 do
+  begin
+  Randomize;
+  Red.Value:=Random(255);
+  Green.Value:=Random(255);
+  Blue.Value:=Random(255);
+  end;
+ end;
+procedure FigureColor();
+begin
+with Form3 do
+begin
+Image1.Canvas.Brush.Color:=RGB(Red.Value,Green.Value,Blue.Value);
+end;
+end;
+procedure TForm3.GreenChange(Sender: TObject);
+begin
+ if ((Sender as TSpinEdit).Value>255) then
+    (Sender as TSpinEdit).Value:=255
+    else
+    if ((Sender as TSpinEdit).Value<0) then
+   (Sender as TSpinEdit).Value:=0;
+   if not Colorful.Down then
+   ifs;
+end;
+
+procedure Line(x1,y1,x2,y2:real);
+begin
+Form3.Image1.Canvas.MoveTo(Round(x1),Round(y1));
+Form3.Image1.Canvas.LineTo(Round(x2),Round(y2));
+end;
+
+procedure FigureTriangle(x1,y1,x2,y2,x3,y3:real);
+begin
+if Form3.Colorful.Down then
+begin
+ChangeColor;
+FigureColor;
+end;
+Form3.Image1.Canvas.Polygon([Point(Round(x1),Round(y1)),Point(Round(x2),Round(y2)),Point(Round(x3),Round(y3))]);
+line(x1,y1,x2,y2);
+line(x2,y2,x3,y3);
+line(x3,y3,x1,y1);
+end;
+Procedure Triangle(iter:integer;x1,y1,x2,y2,x3,y3:real);
+var
+xd,yd,xe,ye,xf,yf:real;
+begin
+with Form3 do
+begin
+inc(iter);
+if iter=FinalAge then
+begin
+FigureTriangle(x1,y1,x2,y2,x3,y3);
+end
+else
+begin
+
+xd:=round((x1+x2)/2);
+yd:=round((y1+y2)/2);
+
+xe:=round((x2+x3)/2);
+ye:=round((y2+y3)/2);
+
+xf:=round((x1+x3)/2);
+yf:=round((y1+y3)/2);
+
+triangle(iter,x1,y1,xd,yd,xf,yf);
+triangle(iter,xd,yd,x2,y2,xe,ye);
+triangle(iter,xf,yf,xe,ye,x3,y3);
+end;
+end;
+end;
+procedure DrowTriangles();
+begin
+with Form3 do
+begin
+Image1.Canvas.Brush.Color:=clWhite;
+image1.Canvas.rectangle(0,0,image1.Width,image1.Height);
+InicializeTriangles();
+if not Colorful.Down then
+ FigureColor;
+//Image1.Canvas.CleanupInstance;
+if Iter>0 then
+begin
+Finalage:=Iter;
+triangle(0,x1,y1,x2,y2,x3,y3);
+end;
+end;
+end;
+
+procedure FigureSquare(x1,y1,x2,y2:real);
+begin
+if Form3.Colorful.Down then
+begin
+ChangeColor;
+FigureColor;
+end;
+{Form3.Image1.Canvas.Polygon([Point(Round(x1),Round(y1)),
+                             Point(Round(x2),Round(y1)),
+                             Point(Round(x2),Round(y2)),
+                             Point(Round(x1),Round(y2))]);
+line(x1,y1,x2,y1);
+line(x2,y1,x2,y2);
+line(x2,y2,x1,y2);
+line(x1,y2,x1,y1); }
+ Form3.Image1.Canvas.Rectangle(round(x1),round(y1),round(x2),round(y2));
+end;
+Procedure Square(iter:integer;x1,y1,x2,y2:real);
+var
+xd,yd,xe,ye,xf,yf,xh,yh:real;
+begin
+with Form3 do
+begin
+inc(iter);
+if iter>FinalAge then
+begin
+end
+else
+begin
+
+xd:=x1;
+yd:=y1;
+
+xe:=round(x1+((x2-x1)/3));
+ye:=round(y1+((y2-y1)/3));
+
+xf:=round(x1+(2*(x2-x1)/3));
+yf:=round(y1+(2*(y2-y1)/3));
+
+xh:=x2;
+yh:=y2;
+
+line(xe,yd,xe,yh);
+line(xf,yd,xf,yh);
+line(xd,ye,xh,ye);
+line(xd,yf,xh,yf);
+
+Square(iter,xd,yd,xe,ye);
+Square(iter,xe,yd,xf,ye);
+Square(iter,xf,yd,xh,ye);
+
+Square(iter,xd,ye,xe,yf);
+FigureSquare(xe,ye,xf,yf);
+Square(iter,xf,ye,xh,yf);
+
+Square(iter,xd,yf,xe,yh);
+Square(iter,xe,yf,xf,yh);
+Square(iter,xf,yf,xh,yh);
+end;
+end;
+end;
+procedure DrowSquares();
+begin
+with Form3 do
+begin
+Image1.Canvas.Brush.Color:=clWhite;
+image1.Canvas.rectangle(0,0,image1.Width,image1.Height);
+InicializeSquares();
+if not Colorful.Down then
+ FigureColor;
+if Iter>0 then
+begin
+Finalage:=Iter;
+Square(0,x1,y1,x2,y2);
+end;
+end;
+end;
+ procedure InicializeSquares();
+ VAR xo,yo:integer;
+  begin
+  with Form3 do
+  begin
+  xo:=300;
+  yo:=300;
+  {
+  x1:=round(xo+r*sin(degtorad(300-grads)))+smaller;  //-grads+450
+  x2:=round(xo+r*sin(degtorad(60+grads)))-smaller;       //+grads
+
+  y2:=round(yo+r*cos(degtorad(180-grads)))+smaller;  //-grads+450
+  y1:=round(yo+r*cos(degtorad(180-grads)))+smaller;      //-grads    }
+  x1:=xo+round(r*sin(DegToRad(270)))+smaller;x2:=xo+round(r*sin(DegToRad(90)))-smaller;
+  y1:=yo+round(r*cos(DegToRad(180)))+smaller;y2:=yo+round(r*cos(DegToRad(0)))-smaller;
+  iter:=Iterations.Position;
+  end;
+ end;
+procedure InicializeTriangles();
+  VAR xo,yo:integer;
+  begin
+  with Form3 do
+  begin
+  xo:=300;
+  yo:= 300;
+
+  x1:=round(xo+r*sin(degtorad(300-grads)))+smaller;  //-grads+450
+  x2:=round(xo+r*sin(degtorad(60+grads)))-smaller;       //+grads
+  x3:=round(xo+r*sin(degtorad(180-grads)));              //-grads
+
+  y2:=round(yo+r*cos(degtorad(180-grads)))+smaller;  //-grads+450
+  y1:=round(yo+r*cos(degtorad(180-grads)))+smaller;      //-grads
+  y3:=round(yo+r*cos(degtorad(0-grads)))-smaller;        //-grads
+  iter:=Iterations.Position;
+  end;
+  end;
+
+procedure TForm3.Timer1Timer(Sender: TObject);
+begin
+if ColorSecond.Down then
+ begin
+  if Blue.Value=255 then
+    BlueTimer:=False;
+  if Blue.Value=0 then
+    BlueTimer:=true;
+  if Red.Value=255 then
+    RedTimer:=false;
+  if Red.Value=0 then
+    RedTimer:=true;
+  if Green.Value=255 then
+    GreenTimer:=false;
+  if Green.Value=0 then
+    GreenTimer:=true;
+  if RedTimer then
+  Red.Value:=Red.Value+10
+  else
+  Red.Value:=Red.Value-10;
+  if BlueTimer then
+  Blue.Value:=Blue.Value+10
+  else
+  Blue.Value:=Blue.Value-10;
+  if GreenTimer then
+  Green.Value:=Green.Value+10
+  else
+  Green.Value:=Green.Value-10;
+
+ ifs;
+ end;
+end;
+procedure TForm3.Timer2Timer(Sender: TObject);
+begin
+if ChangeSize.Down then
+begin
+case i of
+1: if(y1=y3) then
+ TimerValue2:=false;
+2: if(y1=y2) then
+ TimerValue2:=false;
+end;
+if smaller=0 then
+ TimerValue2:=true;
+if TimerValue2 then
+Smaller:=smaller+1
+else
+Smaller:=smaller-1;
+//Form3.Caption:=inttostr(smaller)+' ';
+ifs;
+end;
+end;
+procedure TForm3.Timer3Timer(Sender: TObject);
+var  xi,yi:integer;
+begin
+if Run.Down then
+begin
+    grads:=grads+1;
+    ifs;
+end;
+end;
+
+procedure TForm3.TrianglesClick(Sender: TObject);
+begin
+i:=1;
+  DrowTriangles;
+  ChangeColor;
+end;
+
+procedure TForm3.IterationsChange(Sender: TObject);
+begin
+  Iter:=Iterations.Position;
+  ifs;
+
+end;
+procedure TForm3.Button1Click(Sender: TObject);
+begin
+Timer2.Enabled:=true;
+end;
+
+procedure TForm3.ChangeColorsClick(Sender: TObject);
+begin
+ChangeColor;
+ifs;
+end;
+procedure TForm3.ColorfulClick(Sender: TObject);
+begin
+ifs;
+end;
+procedure TForm3.ColorSecondClick(Sender: TObject);
+begin
+Timer1.Enabled:=True;
+end;
+procedure TForm3.ChangeSizeClick(Sender: TObject);
+begin
+Timer2.Enabled:=true;
+end;
+
+procedure TForm3.RunClick(Sender: TObject);
+begin
+Timer3.Enabled:=true;
+end;
+
+procedure TForm3.SquaresClick(Sender: TObject);
+begin
+i:=2;
+DrowSquares;
+ChangeColor;
+end;
+ procedure Ifs();
+begin
+  case i of
+1:begin
+  DrowTriangles;
+  end;
+2:begin
+  DrowSquares;
+end;
+end;
+end;
+end.
